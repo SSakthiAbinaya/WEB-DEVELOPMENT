@@ -1,6 +1,6 @@
 # WEB-DEVELOPMENT
 # OVERVIEW
-# This project is based on the web development for building and maintaining the websites and web applications.It involves a combination of programming, design, and other skills to create functional and visually appealing websites that can be accessed through web browsers.
+ This project is based on the web development for building and maintaining the websites and web applications.It involves a combination of programming, design, and other skills to create functional and visually appealing websites that can be accessed through web browsers.
 # Key components of Web development (FRONT-END DEVELOPMENT) include :
 # HTML (Hypertext Markup Language): Used to structure content on the web.
 # CSS (Cascading Style Sheets): Used for styling and layout to enhance the visual presentation of HTML.
