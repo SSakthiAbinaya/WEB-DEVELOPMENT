@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://png.pngtree.com/background/20230412/original/pngtree-nature-forest-sun-ecology-picture-image_2394782.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .stopwatch-container {
+            text-align: center;
+        }
+
+        .circle {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 12px solid #000; /* Set black color */
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .time-display {
+            font-size: 3em;
+            position: relative;
+            z-index: 1;
+            color: black; /* Set white color for timer */
+        }
+
+        .time-label {
+            position: absolute;
+            bottom: 20px;
+            font-size: 1em;
+            color: black;
+            z-index: 0;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 1em;
+            margin: 0 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: green; /* Set button color to a shade of blue */
+            color: black; /* Set text color to white */
+            border: none;
+            border-radius: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .lap-times {
+            text-align: left;
+            max-height: 100px;
+            overflow-y: auto;
+            color: black;
+        }
+    </style>
+    <title>PRODIGY_WD_02</title>
+</head>
+<body>
+    <div class="stopwatch-container">
+        <div class="circle">
+            <div class="time-display" id="timeDisplay">00:00:00</div>
+            <div class="time-label">
+                <div id="hoursLabel">Hours</div>
+                <div id="minutesLabel">Minutes</div>
+                <div id="secondsLabel">Seconds</div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button id="startPauseButton" onclick="startPause()">Start</button>
+            <button onclick="reset()">Reset</button>
+            <button onclick="lap()">Lap</button>
+        </div>
+        <ul class="lap-times" id="lapTimes"></ul>
+    </div>
+    <script>
+        let stopwatch;
+        let lapCounter = 1;
+
+        function startPause() {
+            const startPauseButton = document.getElementById("startPauseButton");
+            if (startPauseButton.innerText === "Start") {
+                stopwatch = setInterval(updateTime, 1000);
+                startPauseButton.innerText = "Pause";
+            } else {
+                clearInterval(stopwatch);
+                startPauseButton.innerText = "Start";
+            }
+        }
+
+        function reset() {
+            clearInterval(stopwatch);
+            document.getElementById("startPauseButton").innerText = "Start";
+            lapCounter = 1;
+            updateDisplay(0, 0, 0);
+            document.getElementById("lapTimes").innerHTML = "";
+        }
+
+        function lap() {
+            const lapTimes = document.getElementById("lapTimes");
+            const lapTimeItem = document.createElement("li");
+            lapTimeItem.innerText = `Lap ${lapCounter++}: ${document.getElementById("timeDisplay").innerText}`;
+            lapTimes.appendChild(lapTimeItem);
+        }
+
+        function updateTime() {
+            const timeDisplay = document.getElementById("timeDisplay");
+            const currentTime = timeDisplay.innerText.split(":");
+            const hours = parseInt(currentTime[0]);
+            const minutes = parseInt(currentTime[1]);
+            const seconds = parseInt(currentTime[2]);
+
+            const newSeconds = seconds + 1;
+            const newMinutes = minutes + Math.floor(newSeconds / 60);
+            const newHours = hours + Math.floor(newMinutes / 60);
+
+            updateDisplay(newHours, newMinutes % 60, newSeconds % 60);
+        }
+
+        function updateDisplay(hours, minutes, seconds) {
+            const timeDisplay = document.getElementById("timeDisplay");
+            timeDisplay.innerText = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+
+            // Update labels
+            document.getElementById("hoursLabel").innerText = `Hours: ${hours}`;
+            document.getElementById("minutesLabel").innerText = `Minutes: ${minutes}`;
+            document.getElementById("secondsLabel").innerText = `Seconds: ${seconds}`;
+        }
+
+        function padZero(number) {
+            return number < 10 ? "0" + number : number;
+        }
+    </script>
+</body>
+</html>
