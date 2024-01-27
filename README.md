@@ -8,10 +8,17 @@
 # TASKS WHICH INCLUDE IN THE PROJECT 
 # TASK 1:
 Create an interactive navigation menu that changes color or style when scrolled or when hovering over a menu item. The navigation menu should have a fixed position and be visible on all pages. Use HTML to structure the menu, CSS to style it, and Javascript to add interactivity, such as changing the background color or font color of the menu when it is scrolled or when a menu item is hovered over.
-# Files 
+# File 
 task1.html
 # OUTPUT
 ![task1](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/9979b2d6-ec88-4a1b-9115-c30035b0fb5a)
+
+# TASK 2:
+To build a stopwatch web application, you can use HTML,CSS,and Javascript, HTML is used to structure the elements of the application. By implementing functions for starting, pausing snd resetting the stopwatch as well as tracking and displaying lap times, users can accurately measure and record time intervals. With these technologies and functionalities, you can create an interactive and user friendly stopwatch web application
+# File
+task2.html
+# OUTPUT
+![task2](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/4b23638a-6fe4-4460-bbbf-b7a8c09a68e5)
 
 
 
