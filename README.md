@@ -11,6 +11,7 @@ Create an interactive navigation menu that changes color or style when scrolled 
 # Files 
 task1.html
 # OUTPUT
-![image](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/485990c3-78bf-47f9-b6cb-0c299cfc80cd)
+![task1](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/9979b2d6-ec88-4a1b-9115-c30035b0fb5a)
+
 
 
