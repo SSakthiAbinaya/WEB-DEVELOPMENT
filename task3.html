@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-ezK3sDO/a6vW2w4b0IgXVZf3yisMz9T/2+pJaYYj0op6My1XEGO6MchQV98dK3hh" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        .left-section {
+            flex: 1;
+            background: url('https://t3.ftcdn.net/jpg/02/53/29/62/360_F_253296299_Eq02kCdLh4rDOQtlZZ3coECK3TDa5jC9.jpg') center/cover no-repeat; /* Add your left section image file */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .left-section a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            position: relative;
+            border: 1px solid black; /* Add border to the text */
+            border-radius: 5px; /* Optional: Add border-radius to the text */
+            padding: 10px; /* Adjust padding as needed */
+        }
+
+        .left-section a i {
+            margin-right: 10px;
+        }
+
+        .left-section a:hover {
+            background-color: #f0f0f0; /* Adjust the background color on hover */
+        }
+        .left-section a::before {
+            content: '🏠'; /* Unicode home icon */
+            margin-right: 10px;
+        }
+
+        .left-section a:nth-child(2)::before {
+            content: '🎮'; /* Unicode game controller icon for New Game */
+            margin-right: 10px;
+        }
+
+        .left-section a:nth-child(3)::before {
+            content: '⚙️'; /* Unicode gear icon for Settings */
+            margin-right: 10px;
+        }
+
+        .left-section a:nth-child(4)::before {
+            content: '👤'; /* Unicode person icon for MyProfile */
+            margin-right: 10px;
+        }
+        .right-section {
+            flex: 2;
+            text-align: center;
+            background: url('https://t4.ftcdn.net/jpg/02/79/75/45/360_F_279754521_z5fz8zm9AoqIriAaeKOKWPTmuh1Xr2Qg.jpg') center/cover no-repeat; /* Add your right section image file */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .right-section .header {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color:white;
+        }
+
+        .right-section .boxes-container {
+            display: flex;
+            flex-direction: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Background color for the right section container */
+            padding: 20px;
+            border-radius: 500px;
+            border: 1px solid #ccc; /* Border for the container */
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            border: 1px solid black;
+        }
+
+        .cell:hover {
+            background-color: grey;
+        }
+    </style>
+
+<title>Tic-Tac-Toe</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <a href="#"> Home</a>
+            <a href="#" onclick="resetGame()"> New Game</a>
+            <a href="#"> Settings</a>
+            <a href="#"> MyProfile</a>
+        </div>
+        <div class="right-section">
+            <div class="header">Tic-Tac-Toe</div>
+            <div class="boxes-container">
+                <div id="board" class="board" onclick="handleClick(event)"></div>
+                <p id="result"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const board = document.getElementById('board');
+        const resultDisplay = document.getElementById('result');
+        let currentPlayer = 'X';
+        let gameBoard = ['', '', '', '', '', '', '', '', ''];
+        let gameActive = true;
+
+        function handleClick(event) {
+            const cellIndex = Array.from(board.children).indexOf(event.target);
+
+            if (gameBoard[cellIndex] === '' && gameActive) {
+                gameBoard[cellIndex] = currentPlayer;
+                event.target.textContent = currentPlayer;
+
+                if (checkWinner()) {
+                    resultDisplay.textContent = `Player ${currentPlayer} wins!`;
+                    gameActive = false;
+                } else if (gameBoard.every(cell => cell !== '') && !checkWinner()) {
+                    resultDisplay.textContent = 'It\'s a draw!';
+                    gameActive = false;
+                } else {
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                }
+            }
+        }
+
+        function checkWinner() {
+            const winPatterns = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                [0, 4, 8], [2, 4, 6]             // Diagonals
+            ];
+
+            return winPatterns.some(pattern => {
+                const [a, b, c] = pattern;
+                return gameBoard[a] !== '' && gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c];
+            });
+        }
+
+        function resetGame() {
+            gameBoard = ['', '', '', '', '', '', '', '', ''];
+            gameActive = true;
+            currentPlayer = 'X';
+            resultDisplay.textContent = '';
+            Array.from(board.children).forEach(cell => {
+                cell.textContent = '';
+            });
+        }
+
+        // Initialize the board cells
+        for (let i = 0; i < 9; i++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            board.appendChild(cell);
+        }
+    </script>
+</body>
+</html>
