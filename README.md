@@ -25,8 +25,6 @@ To build for tic-tac-toe web application, you can use HTML, CSS and JavaScript .
 # File
 task3.html
 # OUTPUT
-![task3 1](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/e8ed0953-9c09-4d49-88f5-233295dd2932)
 
-![task3 2](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/3b09f383-2608-49ed-9a92-03af3bc9edd0)
 
 
