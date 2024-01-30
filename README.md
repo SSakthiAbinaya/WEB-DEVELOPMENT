@@ -31,7 +31,7 @@ task3.html
 # TASK 4:
 Write a code to build a portfolio website that showcases your skills, projects and accomplishments as a web developer. Design an attractive and visually appealing layout that captures visitor's attention. Include a home page with captivating headline, professional photo, and summary of your skills. Provide an "About me " section with a detailed background, educational and professional experience
 # File
-home_portfolio.html
+home_portfolio.html and
 portfolio.html
 # OUTPUT
 ![task4 1](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/24033010-ac04-4294-8b07-556e6754b3e4)
