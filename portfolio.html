@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: black;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: goldenrod;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 60px; /* Adjust the width to your desired size */
+            height: 60px; /* Adjust the height to your desired size */
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .split-screen {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-side,
+        .right-side {
+            flex: 1;
+            padding: 20px;
+            color: white;
+        }
+
+        .left-side {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .right-side {
+            background-image: url('https://www.shutterstock.com/image-photo/portrait-beautiful-asian-woman-over-260nw-2201631443.jpg'); /* Replace with your background image path */
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensures the background image covers the entire container */
+            display: flex;
+            
+            height: 50%; /* Adjust the height to your desired size */
+            width: 50%; /* Adjust the width to your desired size */
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+    </style>
+    <title>Sakthi Abinaya - Web Developer</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://b2024606.smushcdn.com/2024606/wp-content/uploads/2008/09/portfolio_online_professional_job_career_search.jpg?lossy=2&strip=1&webp=1" alt="Logo" class="logo">
+            <span><h2>PORTFOLIO</h2></span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="home_portfolio.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="split-screen">
+        <div class="left-side">
+            <h1>Welcome to Sakthi Abinaya's Portfolio</h1>
+            <h2>About Me</h2>
+        <p>
+            Welcome to my portfolio! I am a passionate web developer with a focus on creating
+            user-friendly and innovative web applications. I have a strong background in [Your Field or Technology].
+        </p>
+        <h2>Skills</h2>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <!-- Add more skills as needed -->
+    </ul>
+
+    <h2>Projects</h2>
+    <p>
+        Here are some of the projects I have worked on:
+    </p>
+    <ul>
+        <li>Project 1 - Description</li>
+        <li>Project 2 - Description</li>
+        <!-- Add more projects with descriptions -->
+    </ul>
+
+    <h2>Contact</h2>
+    <p>
+        Feel free to reach out to me:
+        <br>
+        Email: sakthi@example.com
+        <br>
+        LinkedIn: [Your LinkedIn Profile]
+    </p>
+        </div>
+        <div class="right-side">
+            <!-- Content for the right side -->
+        </div>
+    </div>
+
+</body>
+
+</html>
