@@ -25,6 +25,19 @@ To build for tic-tac-toe web application, you can use HTML, CSS and JavaScript .
 # File
 task3.html
 # OUTPUT
+![task3 1](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/e6866515-e597-45af-8ca5-15da4c43c055)
+![task3 2](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/5b809232-27df-4761-9d71-bcc5361027b4)
+
+# TASK 4:
+Write a code to build a portfolio website that showcases your skills, projects and accomplishments as a web developer. Design an attractive and visually appealing layout that captures visitor's attention. Include a home page with captivating headline, professional photo, and summary of your skills. Provide an "About me " section with a detailed background, educational and professional experience
+# File
+home_portfolio.html
+portfolio.html
+# OUTPUT
+![task4 1](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/24033010-ac04-4294-8b07-556e6754b3e4)
+![task4 2](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/6f11a872-9684-4465-97bb-c392f75aa1b0)
+
+
 
 
 
