@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url('https://images.hdqwalls.com/wallpapers/winter-tree-snow-5k-3m.jpg');
+            background-size: 100% 70vh;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+
+        #text-above-image {
+            margin-top: 100px;
+            color: black;
+            margin-left: 10px;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: brown;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #777;
+        }
+
+        #weather-container {
+            margin-top: 40px;
+            text-align: center;
+            background-image: url('https://img.freepik.com/free-photo/sky-clouds-background_1127-3837.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1706745600&semt=ais');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 20px;
+            border-radius: 50px;
+            height: 70vh;
+            
+            color: white;
+            
+            display: flex;
+            justify-content: space-between; /* Adjusted to space-between to separate the weather info and additional image */
+            align-items: center;
+        }
+
+        #weather-info {
+            max-width: 50%; /* Set max-width to 50% for weather information */
+        }
+
+        #additional-image {
+            max-width: 50%; /* Set max-width to 50% for the additional image */
+            border-radius: 10px;
+            margin-left: 20px; /* Added margin to separate the images */
+        }
+
+        label {
+            display: inline-block;
+            margin-top: 20px;
+            color: black;
+        }
+
+        input {
+            display: inline-block;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #777;
+        }
+
+        h1 {
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3845/3845731.png" alt="Weather App Logo" height="50">
+        <span>AllAround Weather App</span>
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div id="text-above-image">
+    <img src="https://cdn-icons-png.flaticon.com/512/3845/3845731.png" alt="Weather App Logo" height="100" width="100">
+    <h1>ALLAROUND WEATHER APP</h1>
+    <h2>Welcome to the Weather App</h2>
+    <p>Check the weather for your city and stay informed.</p>
+</div>
+
+<div id="text">
+    <label for="locationInput">Enter Location:</label>
+    <input type="text" id="locationInput" placeholder="City, Country">
+    <button onclick="getWeather()">Get Weather</button>
+</div>
+
+<div id="weather-container">
+    <div id="weather-info">
+        <!-- Display weather information here -->
+    </div>
+
+    <div id="additional-image">
+        <img src="https://www.lifewire.com/thmb/yfsmiwd4ogXeC-ro4XPQXwLFbIg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/10-ways-to-use-the-iphone-weather-app-52164851-26d63cbc41c8408aa6b03ad43533c621.jpg" height="50%" width="75%" alt="Additional Image">
+    </div>
+</div>
+
+<script>
+    function getWeather() {
+        const apiKey = '3022a131cfb884e5106ebb850192425e';
+        const locationInput = document.getElementById('locationInput').value;
+
+        if (!locationInput) {
+            alert('Please enter a location.');
+            return;
+        }
+
+        const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=${apiKey}`;
+
+        fetch(weatherApiUrl)
+            .then(response => response.json())
+            .then(weatherData => {
+                console.log('Weather Data:', weatherData);
+                displayWeather(weatherData);
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+                alert('Error fetching weather data. Please try again.');
+            });
+    }
+
+    function displayWeather(data) {
+        const weatherInfoContainer = document.getElementById('weather-info');
+        weatherInfoContainer.innerHTML = '';
+
+        if (data.cod !== '404') {
+            const weatherDescription = data.weather[0].description;
+            const temperature = (data.main.temp - 273.15).toFixed(2);
+
+            const weatherInfo = document.createElement('div');
+            weatherInfo.innerHTML = `<h2>Weather in ${data.name}, ${data.sys.country}</h2>
+                                      <p>Description: ${weatherDescription}</p>
+                                      <p>Temperature: ${temperature} °C</p>`;
+
+            weatherInfoContainer.appendChild(weatherInfo);
+        } else {
+            alert('City not found. Please enter a valid location.');
+        }
+    }
+</script>
+
+</body>
+</html>
