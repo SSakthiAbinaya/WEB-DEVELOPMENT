@@ -37,6 +37,13 @@ portfolio.html
 ![task4 1](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/24033010-ac04-4294-8b07-556e6754b3e4)
 ![task4 2](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/6f11a872-9684-4465-97bb-c392f75aa1b0)
 
+# TASK 5:
+Create a code to build a web page that fetches weather data from weather API based on user's location or a user-inputted location. Display the current weather conditions, temperature and other relevant information.
+# File
+task5.html
+# OUTPUT
+![task5 1](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/eaad4166-1e75-4035-85af-c0b8be87693a)
+![task5 2](https://github.com/SSakthiAbinaya/WEB-DEVELOPMENT/assets/157870756/d5af260e-1d4e-4793-adda-a1814767aced)
 
 
 
